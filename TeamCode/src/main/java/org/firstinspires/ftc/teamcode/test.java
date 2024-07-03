@@ -35,7 +35,7 @@ public class test extends LinearOpMode
                 bR.setPower(gamepad1.right_stick_x);
             }
             fL.setPower(0);
-            fR.setPower(0);
+            fR.setPower(0); 
             bL.setPower(0);
             bR.setPower(0);
         }
