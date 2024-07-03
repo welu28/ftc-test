@@ -7,17 +7,17 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp()
 public class test extends LinearOpMode
 {
-    private Robot robot;
+    private Robot robot = new Robot();
 
 
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        waitForStart();
         DcMotor fL = robot.frontLeft;
         DcMotor bL = robot.backLeft;
         DcMotor fR = robot.frontRight;
         DcMotor bR = robot.backRight;
+        waitForStart();
 
         while(opModeIsActive()) {
             if(gamepad1.left_stick_y != 0) {
