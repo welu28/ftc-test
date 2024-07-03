@@ -7,24 +7,17 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp()
 public class test extends LinearOpMode
 {
-    private DcMotor fL;
-    private DcMotor fR;
-    private DcMotor bL;
-    private DcMotor bR;
+    private Robot robot;
 
 
     @Override
     public void runOpMode() throws InterruptedException {
-        fL = hardwareMap.get(DcMotor.class, "frontLeft");
-        fR = hardwareMap.get(DcMotor.class, "frontRight");
-        bL = hardwareMap.get(DcMotor.class, "backLeft");
-        bR = hardwareMap.get(DcMotor.class, "backRight");
-        telemetry.addData("Status", "Initialized");
-        bL.setDirection(DcMotor.Direction.FORWARD);
-        fL.setDirection(DcMotor.Direction.FORWARD);
-        fR.setDirection(DcMotor.Direction.REVERSE);
-        bR.setDirection(DcMotor.Direction.REVERSE);
+        robot.init(hardwareMap);
         waitForStart();
+        DcMotor fL = robot.frontLeft;
+        DcMotor bL = robot.backLeft;
+        DcMotor fR = robot.frontRight;
+        DcMotor bR = robot.backRight;
 
         while(opModeIsActive()) {
             if(gamepad1.left_stick_y != 0) {
