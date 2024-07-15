@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.dashboard.config.Config;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -21,7 +22,7 @@ public class PID extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        drivetrain.init(hardwareMap);
+        drive.init(hardwareMap);
 
     }
 
@@ -37,7 +38,7 @@ public class PID extends LinearOpMode {
 
     // determines the shortest distance to reach a degree.
     // for example, we will go 90 degrees clockwise instead of 270 degrees cc
-    public double angleWrap(int degrees) {
+    public double angleWrap(double degrees) {
         while(degrees > 180){
             degrees -= 360;
         }

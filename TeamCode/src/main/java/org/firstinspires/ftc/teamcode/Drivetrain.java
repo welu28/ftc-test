@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp
 public class Drivetrain {
@@ -12,10 +13,10 @@ public class Drivetrain {
     private DcMotor bR;
 
     public void init(HardwareMap map) {
-        fL = hardwareMap.dcMotor.get("frontLeft");
-        bL = hardwareMap.dcMotor.get("frontRight");
-        fR = hardwareMap.dcMotor.get("backLeft");
-        bR = hardwareMap.dcMotor.get("backRight");
+        fL = map.dcMotor.get("frontLeft");
+        bL = map.dcMotor.get("frontRight");
+        fR = map.dcMotor.get("backLeft");
+        bR = map.dcMotor.get("backRight");
 
         fL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         bL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
