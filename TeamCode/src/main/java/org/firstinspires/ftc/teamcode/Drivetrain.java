@@ -5,39 +5,33 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
-public class mecanum extends LinearOpMode {
+public class Drivetrain {
     private DcMotor fL;
     private DcMotor bL;
     private DcMotor fR;
     private DcMotor bR;
 
-    @Override
-    public void runOpMode() throws InterruptedException {
+    public void init(HardwareMap map) {
         fL = hardwareMap.dcMotor.get("frontLeft");
         bL = hardwareMap.dcMotor.get("frontRight");
         fR = hardwareMap.dcMotor.get("backLeft");
         bR = hardwareMap.dcMotor.get("backRight");
 
+        fL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        fR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         fR.setDirection(DcMotor.Direction.REVERSE);
         bR.setDirection(DcMotor.Direction.REVERSE);
-
-        waitForStart();
-
-        if(isStopRequested()) return;
-
-        while(opModeIsActive()) {
-            move(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
-        }
     }
 
     // left joystick controls forward/backward and strafe, right controls turning
     public void move(double power, double strafe, double turn) {
-        // normalization factor to make sure motor powers are within valid range
-        double norm = Math.max(Math.abs(power) + Math.abs(strafe) + Math.abs(turn), 1);
-        double fLPow = (power + strafe + turn) / norm;
-        double bLPow = (power - strafe + turn) / norm;
-        double fRPow = (power - strafe - turn) / norm;
-        double bRPOw = (power + strafe - turn) / norm;
+        double fLPow = power + strafe + turn;
+        double bLPow = power - strafe + turn;
+        double fRPow = power - strafe - turn;
+        double bRPOw = power + strafe - turn;
 
         setPowers(fLPow, bLPow, fRPow, bRPOw);
     }
