@@ -1,8 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @TeleOp
 public class mecanum extends LinearOpMode {
@@ -18,15 +18,15 @@ public class mecanum extends LinearOpMode {
         fR = hardwareMap.dcMotor.get("backLeft");
         bR = hardwareMap.dcMotor.get("backRight");
 
-        fR.setDirection(DcMotorSimple.Direction.REVERSE);
-        bR.setDirection(DcMotorSimple.Direction.REVERSE);
+        fR.setDirection(DcMotor.Direction.REVERSE);
+        bR.setDirection(DcMotor.Direction.REVERSE);
 
         waitForStart();
 
         if(isStopRequested()) return;
 
         while(opModeIsActive()) {
-            move(gamepad.left_stick_y, gamepad.left_stick_x, gamepad.right_stick_x);
+            move(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
         }
     }
 
