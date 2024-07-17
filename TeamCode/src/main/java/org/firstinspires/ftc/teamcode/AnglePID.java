@@ -48,7 +48,7 @@ public class AnglePID extends LinearOpMode {
              */
             telemetry.addData("Current IMU Angle", imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle);
             double power = PIDControl(angle, imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle);
-            drive.setPower(power);
+            drive.setTurnPower(power);
             telemetry.update();
         }
     }
