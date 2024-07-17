@@ -17,7 +17,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 public class AnglePID extends LinearOpMode {
     public static double kP = 2; // proportional gain
     public static double kI = 0.0; // integral gain (keep at 0, don't need for angles)
-    public static double kD = 0.0; // derivative gain
+    public static double kD = 0.001; // derivative gain
 
     Drivetrain drive = new Drivetrain();
     ElapsedTime timer = new ElapsedTime(); // for integral, don't actually need here
