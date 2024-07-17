@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.dashboard.config.Config;
-import com.qualcomm.hardware.bosch.BNO055IMU;
+
+import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -25,16 +26,16 @@ public class AnglePID extends LinearOpMode {
     double integralSum = 0;
     double lastError = 0;
 
-    private BNO055IMU imu;
+    private BHI260IMU imu;
 
     @Override
     public void runOpMode() throws InterruptedException {
         drive.init(hardwareMap);
-        imu = hardwareMap.get(BNO055IMU.class, "imu");
+        imu = hardwareMap.get(BHI260IMU.class, "imu");
         // configure imu settings
-        BNO055IMU.Parameters settings = new BNO055IMU.Parameters();
-        settings.mode = BNO055IMU.SensorMode.IMU; // default is ndof
-        settings.angleUnit = BNO055IMU.AngleUnit.DEGREES; // radians bad
+        BHI260IMU.Parameters settings = new BHI260IMU.Parameters();
+        settings.mode = BHI260IMU.SensorMode.IMU; // default is ndof
+        settings.angleUnit = BHI260IMU.AngleUnit.DEGREES; // radians bad
         imu.initialize(settings);
 
         double angle = 90;

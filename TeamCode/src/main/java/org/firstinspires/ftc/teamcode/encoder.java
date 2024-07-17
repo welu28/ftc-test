@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp
 public class encoder extends LinearOpMode {
     DcMotor motor;
-    double ticks = ...; // find on goBilda
+    double ticks = 4000; // find on goBilda
     double target; // target position for motor to turn to
 
     @Override
