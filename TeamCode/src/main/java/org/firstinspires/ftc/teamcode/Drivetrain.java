@@ -54,7 +54,7 @@ public class Drivetrain {
     public void setTurnPower(double pow) {
         fL.setPower(pow);
         bL.setPower(pow);
-        -fR.setPower(pow);
-        -bR.setPower(pow);
+        fR.setPower(-pow);
+        bR.setPower(-pow);
     }
 }
