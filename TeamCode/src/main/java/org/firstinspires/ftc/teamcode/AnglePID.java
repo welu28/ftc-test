@@ -1,8 +1,13 @@
+/*
+TO DO
+- change the imu commands, since they are designed for a different model
+- set up ftc dashbaord
+ */
+
 package org.firstinspires.ftc.teamcode;
 
-import com.acmerobotics.dashboard.config.Config;
-
 import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -14,7 +19,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
 // set pid constants and change on ftc dashboard
 // https://acmerobotics.github.io/ftc-dashboard/gettingstarted.html
-@Config
 @TeleOp
 public class AnglePID extends LinearOpMode {
     public static double kP = 2; // proportional gain
