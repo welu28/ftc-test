@@ -10,7 +10,7 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -19,7 +19,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
 // set pid constants and change on ftc dashboard
 // https://acmerobotics.github.io/ftc-dashboard/gettingstarted.html
-@TeleOp
+@Autonomous
 public class AnglePID extends LinearOpMode {
     public static double kP = 2; // proportional gain
     public static double kI = 0.0; // integral gain (keep at 0, don't need for angles)
