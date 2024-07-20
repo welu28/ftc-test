@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp
 public class Drivetrain {
-    private DcMotor fL;
-    private DcMotor bL;
-    private DcMotor fR;
-    private DcMotor bR;
+    public DcMotor fL;
+    public DcMotor bL;
+    public DcMotor fR;
+    public DcMotor bR;
 
     public void init(HardwareMap map) {
         fL = map.dcMotor.get("frontLeft");

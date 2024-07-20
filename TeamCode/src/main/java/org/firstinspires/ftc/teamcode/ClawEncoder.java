@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
-public class encoder extends LinearOpMode {
+public class ClawEncoder extends LinearOpMode {
     DcMotor motor;
     double ticks = 4000; // find on goBilda
     double target; // target position for motor to turn to
