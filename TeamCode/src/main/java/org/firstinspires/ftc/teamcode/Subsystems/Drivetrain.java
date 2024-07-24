@@ -1,15 +1,16 @@
 package org.firstinspires.ftc.teamcode.Subsystems;
 
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
 
-@TeleOp
 public class Drivetrain {
     public DcMotor fL;
     public DcMotor bL;
     public DcMotor fR;
     public DcMotor bR;
+    public IMU imu;
 
     public void init(HardwareMap map) {
         fL = map.dcMotor.get("frontLeft");
@@ -29,16 +30,28 @@ public class Drivetrain {
 
         fR.setDirection(DcMotor.Direction.REVERSE);
         bR.setDirection(DcMotor.Direction.REVERSE);
+
+        imu = map.get(IMU.class, "imu");
+        // specifies which direction the logo on the control hub is facing
+        IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
+                RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
+                RevHubOrientationOnRobot.UsbFacingDirection.UP
+        ));
+        imu.initialize(parameters);
+
+
     }
 
     // left joystick controls forward/backward and strafe, right controls turning
     public void move(double power, double strafe, double turn) {
+        // normalize so doesn't exceed 1
+        double norm = Math.max(Math.abs(power) + Math.abs(strafe) + Math.abs(turn), 1);
         double fLPow = power + strafe + turn;
         double bLPow = power - strafe + turn;
         double fRPow = power - strafe - turn;
         double bRPOw = power + strafe - turn;
 
-        setPowers(fLPow, bLPow, fRPow, bRPOw);
+        setPowers(fLPow/norm, bLPow/norm, fRPow/norm, bRPOw/norm);
     }
 
     public void setPowers(double fLPow, double bLPow, double fRPow, double bRPOw) {
@@ -48,11 +61,8 @@ public class Drivetrain {
         bR.setPower(bRPOw);
     }
 
-    public void setPower(double pow) {
-        fL.setPower(pow);
-        bL.setPower(pow);
-        fR.setPower(pow);
-        bR.setPower(pow);
+    public void setPowers(double pow) {
+        this.setPowers(pow, pow, pow, pow);
     }
 
     public void setTurnPower(double pow) {

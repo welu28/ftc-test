@@ -9,6 +9,7 @@ package org.firstinspires.ftc.teamcode.Autons;
 import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -30,12 +31,12 @@ public class AnglePID extends LinearOpMode {
     double integralSum = 0;
     double lastError = 0;
 
-    private BHI260IMU imu;
+    private IMU imu;
 
     @Override
     public void runOpMode() throws InterruptedException {
         drive.init(hardwareMap);
-        imu = hardwareMap.get(BHI260IMU.class, "imu");
+        imu = hardwareMap.get(IMU.class, "imu");
         // configure imu settings
         BHI260IMU.Parameters settings = new BHI260IMU.Parameters();
         settings.mode = BHI260IMU.SensorMode.IMU; // default is ndof

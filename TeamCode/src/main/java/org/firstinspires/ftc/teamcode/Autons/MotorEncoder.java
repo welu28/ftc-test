@@ -32,7 +32,7 @@ public class MotorEncoder extends LinearOpMode {
             // Drive forward for 1000 encoder ticks
             driveToPosition(1000, 0.5);
         }
-        drivetrain.setPower(0);
+        drivetrain.setPowers(0);
     }
 
     private void resetEncoders() {
