@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.Autons;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import org.firstinspires.ftc.teamcode.Templates.Drivetrain;
+import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 
 @Autonomous
 public class MotorEncoder extends LinearOpMode {
@@ -28,8 +28,10 @@ public class MotorEncoder extends LinearOpMode {
         resetEncoders();
         waitForStart();
 
-        // Drive forward for 1000 encoder ticks
-        driveToPosition(1000, 0.5);
+        while(opModeIsActive() && !isStopRequested()) {
+            // Drive forward for 1000 encoder ticks
+            driveToPosition(1000, 0.5);
+        }
         drivetrain.setPower(0);
     }
 

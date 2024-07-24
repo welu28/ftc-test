@@ -6,8 +6,6 @@ TO DO
 
 package org.firstinspires.ftc.teamcode.Autons;
 
-import com.acmerobotics.dashboard.FtcDashboard;
-import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -16,7 +14,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.teamcode.Templates.Drivetrain;
+import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 
 // set pid constants and change on ftc dashboard
 // https://acmerobotics.github.io/ftc-dashboard/gettingstarted.html

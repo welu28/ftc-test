@@ -27,7 +27,7 @@ public class PIDFarm extends LinearOpMode {
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
         arm = hardwareMap.get(DcMotorEx.class, "arm"); // CHANGE THIS
 
-        while(opModeIsActive()) {
+        while(opModeIsActive() && !isStopRequested()) {
             controller.setPID(kP, kI, kD);
             int currentPosition = arm.getCurrentPosition();
             double power = controller.calculate(currentPosition, target);
