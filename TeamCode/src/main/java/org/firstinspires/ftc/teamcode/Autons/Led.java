@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.Subsystems.LED;
 
 @Autonomous
-public class LedParty extends LinearOpMode {
+public class Led extends LinearOpMode {
     private LED led;
 
     @Override
