@@ -24,12 +24,11 @@ public class MotorEncoder extends LinearOpMode {
         fR = drivetrain.fR;
         bR = drivetrain.bR;
 
-        // Reset encoders
         resetEncoders();
         waitForStart();
 
         while(opModeIsActive() && !isStopRequested()) {
-            // Drive forward for 1000 encoder ticks
+            // drive forward for 1000 encoder ticks
             driveToPosition(1000, 0.5);
         }
         drivetrain.setPowers(0);
