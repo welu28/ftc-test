@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import java.util.Random;
 
-// just for fun: https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
+// https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf
 public class LED {
     private RevBlinkinLedDriver lights;
     private ElapsedTime timer = new ElapsedTime();
