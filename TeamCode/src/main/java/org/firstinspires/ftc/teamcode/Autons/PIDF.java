@@ -22,8 +22,8 @@ public class PIDF extends LinearOpMode {
     public static double F = 0;
 
 
-    public static int target = 100;
-    private final double ticks_in_degree = 384.5 / 180;
+    public static int target = 200;
+    private final double ticks_in_degree = 8192 / 360.0;
 
     private DcMotor rightLift;
     private DcMotor leftLift;
@@ -41,9 +41,9 @@ public class PIDF extends LinearOpMode {
         while(opModeIsActive() && !isStopRequested()) {
             controller.setPID(P, I, D);
             int currentPosition = rightLift.getCurrentPosition();
-            double power = controller.calculate(currentPosition, target);
+            double pid = controller.calculate(currentPosition, target);
             double feedForward = Math.cos(Math.toRadians(target/ticks_in_degree)) * F;
-            power += feedForward;
+            double power = pid + feedForward;
             rightLift.setPower(power);
             leftLift.setPower(power);
 
