@@ -34,6 +34,7 @@ public class PIDF extends LinearOpMode {
         controller = new PIDController(P, I, D);
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
         rightLift = hardwareMap.get(DcMotor.class, "rightLift");
+        rightLift.setDirection(DcMotor.Direction.REVERSE);
         leftLift = hardwareMap.get(DcMotor.class, "leftLift");
 
 
