@@ -36,7 +36,7 @@ public class PIDF extends LinearOpMode {
         rightLift = hardwareMap.get(DcMotor.class, "rightLift");
         rightLift.setDirection(DcMotor.Direction.REVERSE);
         leftLift = hardwareMap.get(DcMotor.class, "leftLift");
-
+        waitForStart();
 
         while(opModeIsActive() && !isStopRequested()) {
             controller.setPID(P, I, D);
