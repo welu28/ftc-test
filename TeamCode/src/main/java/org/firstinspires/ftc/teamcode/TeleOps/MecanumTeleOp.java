@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
 
 @TeleOp
-public class TeleOpp extends LinearOpMode {
+public class MecanumTeleOp extends LinearOpMode {
 
     private Drivetrain drive = new Drivetrain();
 
@@ -17,7 +17,7 @@ public class TeleOpp extends LinearOpMode {
 
         while (opModeIsActive()) {
             double strafe = -gamepad1.left_stick_y;
-            double power = gamepad1.left_stick_x;
+            double power = gamepad1.left_stick_x * 1.1; // counteract imperfect strafing
             double turn = gamepad1.right_stick_x;
 
             drive.move(power, strafe, turn);

@@ -1,16 +1,13 @@
 package org.firstinspires.ftc.teamcode.Subsystems;
 
-import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.IMU;
 
 public class Drivetrain {
     public DcMotor fL;
     public DcMotor bL;
     public DcMotor fR;
     public DcMotor bR;
-    public IMU imu;
 
     public void init(HardwareMap map) {
         fL = map.dcMotor.get("frontLeft");
@@ -30,14 +27,6 @@ public class Drivetrain {
 
         fR.setDirection(DcMotor.Direction.REVERSE);
         bR.setDirection(DcMotor.Direction.REVERSE);
-
-        imu = map.get(IMU.class, "imu");
-        // specifies which direction the logo on the control hub is facing
-        IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
-                RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
-                RevHubOrientationOnRobot.UsbFacingDirection.UP
-        ));
-        imu.initialize(parameters);
 
 
     }
