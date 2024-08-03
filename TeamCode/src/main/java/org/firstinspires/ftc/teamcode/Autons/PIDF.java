@@ -18,6 +18,7 @@ public class PIDF extends LinearOpMode {
     public static double P = 0; // public so you can change on FTC dashboard
     public static double I = 0;
     public static double D = 0;
+    // gravity feedforward
     public static double F = 0;
 
     // Target position in encoder ticks
